@@ -1,0 +1,25 @@
+@import 'all-page.scss';
+@import '_EditMember.scss';
+@import '_dashboard.scss';
+/**strat form login*/
+.login{
+    width :300px;
+    margin: 100px auto;
+    h4{
+        color: #000;
+    }
+    input{
+        margin-bottom: 10px;
+        
+    }
+    input.form-control{
+        background-color: #EEE;
+    }
+    input.btn{
+        background: #1894dc;
+    }
+}
+
+
+
+/**end form login*/

@@ -1,0 +1,43 @@
+h1.edit-member{
+    margin: 20px;
+    text-transform: capitalize;
+    color: #0c1542;
+}
+
+
+.form-row{
+
+    .form-group{
+
+        .col-form-label{
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        .form-control{
+            position: relative;
+        }
+        .asterisk{
+            font-size: 30px;
+            position: absolute;
+            right: 15px;
+            top: 39px;
+            color: #F00;
+        }
+    }
+}
+//////mange members
+h1.mange-member{
+    margin :25px;
+}
+
+.table{
+    border-radius: 5px;
+    vertical-align: middle;
+    tbody{
+        td{
+            a{
+                margin-right: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+$dash-color:#343a40;
+.status{
+    .container{
+        h1{
+            margin: 40px 0 40px;
+        }
+        .row{
+            .stat{
+                background-color: $dash-color;
+                font-size: 1.5em;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: -10px 11px 11px 1px #000;
+                color: white;
+                span{
+                    display: block;
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+}
+.panel{
+    margin-top: 20px;
+    .card{
+        background-color: $dash-color;
+        color:white;
+        box-shadow: -10px 11px 11px 1px #000;
+        .card-header{
+
+        }
+        .card-body{
+
+        }
+    }
+}
