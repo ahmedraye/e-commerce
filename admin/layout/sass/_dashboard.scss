@@ -12,6 +12,10 @@ $dash-color:#343a40;
                 border-radius: 10px;
                 box-shadow: -10px 11px 11px 1px #000;
                 color: white;
+
+                a:hover{
+                    text-decoration: none;
+                }
                 span{
                     display: block;
                     font-size: 50px;
@@ -30,7 +34,16 @@ $dash-color:#343a40;
 
         }
         .card-body{
-
+            .card-text:nth-child(odd){//you can use even
+                background-color: #000dff59;
+                border-radius: 4px;
+            }
+            P.card-text a{
+                margin-left: 10px;
+            }
+            p.card-text a.activation{
+                color: #098635;
+            }
         }
     }
 }

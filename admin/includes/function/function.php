@@ -55,3 +55,23 @@ function checkItem($select ,$form, $value){
     return $row;
 
 }
+
+
+//function to give count of item
+function countItem($Itme,$table){
+    global $conn;
+    $stmmt = $conn->prepare("SELECT COUNT('$Itme') FROM $table");
+    $stmmt->execute();
+    return $stmmt->fetchcolumn();
+}
+
+
+
+//func to GetLatest
+function Getlatest($select,$table,$order,$NUM){
+    global $conn;
+    $getStmt = $conn->prepare("SELECT $select FROM $table ORDER BY $order DESC LIMIT $NUM");
+    $getStmt->execute();
+    $row = $getStmt->fetchAll();
+    return $row;
+}

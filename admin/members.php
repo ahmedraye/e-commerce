@@ -43,8 +43,8 @@ $Title ='members mangment';
                             redirect('<strong>warning!</strong> User is Found.','warning','back');
                         }else{
                             $stmt   = $conn->prepare('INSERT INTO 
-                                                    users (username, password, Email, FullName,Date) 
-                                                    VALUES (:Quser,:Qpass, :Qmail, :Qname ,now())');
+                                                    users (username, password, Email, FullName,RegStatus,Date) 
+                                                    VALUES (:Quser,:Qpass, :Qmail, :Qname ,1,now())');
                             $stmt->execute(array(
                             'Quser'=> $user,
                             'Qpass'=> $hashpass,
@@ -153,6 +153,24 @@ $Title ='members mangment';
                 }
                 echo '</div>';
                 break;
+            case 'active':
+                //active page
+                echo'  <h1 class="text-center add-member">active member</h1>';
+                echo'<div class="container">';
+                $UID = (isset($_GET['userid'])&&is_numeric($_GET['userid'])) ? $_GET['userid'] : 0 ;
+                $stmt = $conn->prepare('SELECT * FROM USERS WHERE userID = ? LIMIT 1');
+                $stmt->execute(array($UID)); //array
+                $row =$stmt->rowcount();
+                if($row > 0){
+                    $stmt = $conn->prepare('UPDATE users SET RegStatus = 1 WHERE userID=?');
+                    $stmt->execute(array($UID)); //array
+                    
+                    redirect('<strong>Successfull</strong> activition User.','success','members.php');
+                }else{
+                    redirect('Error!','error','member.php');
+                }
+                echo '</div>';
+                break;
             case 'add':?>
                 <h1 class="text-center add-member">Add member</h1>
                 <div class="container">
@@ -183,7 +201,11 @@ $Title ='members mangment';
                 </div><?php
                 break;
             default:
-                $stmt = $conn->prepare('SELECT * FROM users WHERE GroupID=0');
+                $query ='';
+                if($test ='mange' && isset( $_GET['page']) == 'pending' ){
+                    $query ='AND RegStatus=0';
+                }
+                $stmt = $conn->prepare('SELECT * FROM users WHERE GroupID=0 '.$query);
                 $stmt->execute();
                 $rows = $stmt->fetchAll();?>
 
@@ -210,8 +232,12 @@ $Title ='members mangment';
                                 echo '<td>'.$row['FullName'].'</td>';
                                 echo '<td>'.$row['Date'].'</td>';
                                 echo '<td>'.'<a href="?do=Edit&userid='.$row['UserID'].'" >'.'<i class="fa fa-edit"></i>'.'</a>'.
-                                '<a href="?do=Delet&userid='.$row['UserID'].'" >'.'<i class="far fa-trash-alt Confirm"></i>'.'</a>'.'</td>' ;
-                                echo '<td>'.'</td>' ;
+                                '<a href="?do=Delet&userid='.$row['UserID'].'" >'.'<i class="far fa-trash-alt Confirm"></i>'.'</a>';
+                                if($row['RegStatus'] == 0){
+                                    echo '<a href="?do=active&userid='.$row['UserID'].'" >'.'<i class="fa fa-user-lock"></i>'.'</a>';
+                                    
+                                }
+                                echo '</td>';
                                 echo '</tr>';
                             }
                         ?>

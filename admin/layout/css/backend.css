@@ -56,6 +56,8 @@ h1.mange-member {
   border-radius: 10px;
   box-shadow: -10px 11px 11px 1px #000;
   color: white; }
+  .status .container .row .stat a:hover {
+    text-decoration: none; }
   .status .container .row .stat span {
     display: block;
     font-size: 50px; }
@@ -66,6 +68,42 @@ h1.mange-member {
     background-color: #343a40;
     color: white;
     box-shadow: -10px 11px 11px 1px #000; }
+    .panel .card .card-body .card-text:nth-child(odd) {
+      background-color: #000dff59;
+      border-radius: 4px; }
+    .panel .card .card-body P.card-text a {
+      margin-left: 10px; }
+    .panel .card .card-body p.card-text a.activation {
+      color: #098635; }
+
+h1.category {
+  margin: 40px 0 40px; }
+
+.container .card {
+  color: #f8f9fa !important; }
+  .container .card .card-header h4 {
+    display: inline-block; }
+  .container .card .card-header .ordering a {
+    text-decoration: none; }
+  .container .card .card-header .ordering .active {
+    color: #f8f9fa;
+    font-weight: bold; }
+  .container .card .card-body .Totalcard {
+    position: relative;
+    transition: all .5 ease-in-out; }
+    .container .card .card-body .Totalcard span.badge {
+      margin-right: 5px; }
+    .container .card .card-body .Totalcard .icon {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      display: none; }
+    .container .card .card-body .Totalcard a {
+      margin-right: 5px; }
+  .container .card .card-body .Totalcard:hover .icon {
+    display: block; }
+  .container .card .card-body .Totalcard:last-of-type hr {
+    display: none; }
 
 /**strat form login*/
 .login {
