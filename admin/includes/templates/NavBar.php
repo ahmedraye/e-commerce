@@ -10,7 +10,7 @@
               <a class="nav-link" href="Categories.php"><?php echo lang('Categories-nav');?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><?php echo lang('Items-nav');?></a>
+              <a class="nav-link" href="items.php"><?php echo lang('Items-nav');?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo 'members.php';?>"><?php echo lang('Member-nav');?></a>

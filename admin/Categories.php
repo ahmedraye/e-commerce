@@ -36,7 +36,7 @@
                     $stmt->execute(array($name,$dec, $order, $Visible, $comment,$ads,$ID));
                     $row = $stmt->rowcount();
                     if($row > 0){
-                        redirect('<strong>Successfull</strong> Save data.','success','back');
+                        redirect('<strong>Successfull</strong> Save data.','success','back  ');
                     }else{
                         redirect('<strong>error!</strong> NO Record.','error');
                     }
