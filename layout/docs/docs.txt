@@ -1,0 +1,1 @@
+////var $NONavBar this var to block php page include navBar

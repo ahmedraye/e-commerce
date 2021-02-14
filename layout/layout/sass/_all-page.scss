@@ -1,0 +1,37 @@
+/**all app style**/
+
+$main-color:#2980b9;
+
+body{
+    background-color: #f4f4f4;
+    font-size: 16px;
+}
+.header_add{
+    margin: 40px 0 40px;
+}
+
+/**
+*Start edit bootstrap
+*/
+.navbar-brand{
+    font-size: 1em;
+}
+.dropdown-menu.show{
+    background-color:$main-color;
+}
+.dropdown-item{
+    color: white;
+}
+.dropdown-item:hover{
+    color: $main-color;
+}
+.dropdown-menu{
+    left: none;
+}
+
+
+
+
+/**
+*End edit bootstrap
+*/

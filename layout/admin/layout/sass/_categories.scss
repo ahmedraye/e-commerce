@@ -1,0 +1,50 @@
+//mang categories
+
+h1.category{
+    margin: 40px 0 40px;
+}
+
+.container{
+    .card{
+        color: #f8f9fa!important;
+        .card-header{
+            h4{
+                display: inline-block;
+            }
+            .ordering{
+                a{
+                    text-decoration: none;
+                }
+                .active{
+                    color: #f8f9fa;
+                    font-weight: bold;
+                }
+            }
+
+        }
+        .card-body{
+            .Totalcard{
+                position: relative;
+                transition: all .5 ease-in-out;
+                span.badge{
+                    margin-right: 5px;
+                }
+                .icon{
+                    position: absolute;
+                    top: 15px;
+                    right: 10px;
+                    display: none;
+                }
+                a{
+                    margin-right: 5px;
+                }
+            }
+            .Totalcard:hover .icon{
+                display: block;
+            }
+            .Totalcard:last-of-type hr{
+                display: none;
+            }
+        }
+    }
+}

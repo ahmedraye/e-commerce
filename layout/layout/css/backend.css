@@ -1,0 +1,128 @@
+/**all app style**/
+body {
+  background-color: #f4f4f4;
+  font-size: 16px; }
+
+.header_add {
+  margin: 40px 0 40px; }
+
+/**
+*Start edit bootstrap
+*/
+.navbar-brand {
+  font-size: 1em; }
+
+.dropdown-menu.show {
+  background-color: #2980b9; }
+
+.dropdown-item {
+  color: white; }
+
+.dropdown-item:hover {
+  color: #2980b9; }
+
+/**
+*End edit bootstrap
+*/
+h1.edit-member {
+  margin: 20px;
+  text-transform: capitalize;
+  color: #0c1542; }
+
+.form-row .form-group .col-form-label {
+  font-weight: bold;
+  text-transform: capitalize; }
+.form-row .form-group .form-control {
+  position: relative; }
+.form-row .form-group .asterisk {
+  font-size: 30px;
+  position: absolute;
+  right: 15px;
+  top: 39px;
+  color: #F00; }
+
+h1.mange-member {
+  margin: 25px; }
+
+.table {
+  border-radius: 5px;
+  vertical-align: middle; }
+  .table tbody td a {
+    margin-right: 10px; }
+
+.status .container h1 {
+  margin: 40px 0 40px; }
+.status .container .row .stat {
+  background-color: #343a40;
+  font-size: 1.5em;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: -10px 11px 11px 1px #000;
+  color: white; }
+  .status .container .row .stat a:hover {
+    text-decoration: none; }
+  .status .container .row .stat span {
+    display: block;
+    font-size: 50px; }
+
+.panel {
+  margin-top: 20px; }
+  .panel .card {
+    background-color: #343a40;
+    color: white;
+    box-shadow: -10px 11px 11px 1px #000; }
+    .panel .card .card-header .card-title .toggle-inf:hover {
+      cursor: pointer; }
+    .panel .card .card-body .card-text:nth-child(odd) {
+      background-color: #000dff59;
+      border-radius: 4px; }
+    .panel .card .card-body P.card-text a {
+      margin-left: 10px; }
+    .panel .card .card-body p.card-text a.activation {
+      color: #098635; }
+
+h1.category {
+  margin: 40px 0 40px; }
+
+.container .card {
+  color: #f8f9fa !important; }
+  .container .card .card-header h4 {
+    display: inline-block; }
+  .container .card .card-header .ordering a {
+    text-decoration: none; }
+  .container .card .card-header .ordering .active {
+    color: #f8f9fa;
+    font-weight: bold; }
+  .container .card .card-body .Totalcard {
+    position: relative;
+    transition: all .5 ease-in-out; }
+    .container .card .card-body .Totalcard span.badge {
+      margin-right: 5px; }
+    .container .card .card-body .Totalcard .icon {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      display: none; }
+    .container .card .card-body .Totalcard a {
+      margin-right: 5px; }
+  .container .card .card-body .Totalcard:hover .icon {
+    display: block; }
+  .container .card .card-body .Totalcard:last-of-type hr {
+    display: none; }
+
+/**strat form login*/
+.login {
+  width: 300px;
+  margin: 100px auto; }
+  .login h4 {
+    color: #000; }
+  .login input {
+    margin-bottom: 10px; }
+  .login input.form-control {
+    background-color: #EEE; }
+  .login input.btn {
+    background: #1894dc; }
+
+/**end form login*/
+
+/*# sourceMappingURL=backend.css.map */
