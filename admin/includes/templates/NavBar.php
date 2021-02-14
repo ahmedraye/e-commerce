@@ -13,6 +13,9 @@
               <a class="nav-link" href="items.php"><?php echo lang('Items-nav');?></a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="comment.php"><?php echo lang('comment-nav');?></a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="<?php echo 'members.php';?>"><?php echo lang('Member-nav');?></a>
             </li>
             <li class="nav-item">
@@ -29,6 +32,7 @@
                 <?php echo lang('Dropdown');?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="../index.php">shop</a>
                 <a class="dropdown-item" href="<?php echo 'members.php?do=Edit&userid='.$_SESSION['ID'];?>"><?php echo lang('section_nav');?></a>
                 <a class="dropdown-item" href="#"><?php echo lang('settings_navbar');?></a>
                 <a class="dropdown-item" href="logout.php"><?php echo lang('Logout-nav');?></a>

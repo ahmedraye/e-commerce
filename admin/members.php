@@ -150,7 +150,7 @@ $Title ='members mangment';
                     redirect('<strong>Successfull</strong> Delete User.','success','members.php');
                 }else{
                     redirect('Error!','error','member.php');
-                }
+                
                 echo '</div>';
                 break;
             case 'active':

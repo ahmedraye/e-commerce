@@ -25,7 +25,9 @@ body{
 .dropdown-item:hover{
     color: $main-color;
 }
-
+.dropdown-menu{
+    left: none;
+}
 
 
 

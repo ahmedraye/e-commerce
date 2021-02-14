@@ -1,5 +1,9 @@
 jQuery(function(){
     'use strict';
+
+  
+
+
     // hide section in dashboard
     $('.toggle-inf').click(function(){
         $(this).toggleClass('select').parent().parent().next('.card-body').fadeToggle(100);

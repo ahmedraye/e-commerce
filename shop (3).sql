@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2021 at 12:04 PM
+-- Generation Time: Feb 13, 2021 at 12:09 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `ID` smallint(6) NOT NULL,
+  `ID` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `Description` text NOT NULL,
   `Ordering` int(11) NOT NULL COMMENT 'To order items',
@@ -42,10 +42,25 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`ID`, `name`, `Description`, `Ordering`, `Visibility`, `Allow_comment`, `Allow_ads`) VALUES
-(2, 'privet', 'my', 1, 1, 1, 1),
-(4, 'playstaion', 'this', 4, 1, 1, 1),
-(5, 'pces', 'this is testt catt', 1, 1, 1, 1),
-(6, 'playstaion 4', 'this is category play games', 2, 1, 0, 1);
+(7, 'books', ' show best books', 1, 1, 1, 1),
+(8, 'pc', 'pc', 2, 1, 1, 1),
+(9, 'Hand made', 'hand made', 3, 1, 1, 0),
+(10, 'electronics', 'electronics pcs', 4, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `C_ID` int(11) NOT NULL,
+  `comment_text` text NOT NULL,
+  `comment_Date` datetime NOT NULL,
+  `comment_Status` tinyint(4) NOT NULL DEFAULT 1,
+  `item_ID` int(11) NOT NULL,
+  `user_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -63,6 +78,7 @@ CREATE TABLE `items` (
   `image` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `Rating` smallint(6) NOT NULL,
+  `approve_items` tinyint(4) NOT NULL DEFAULT 0,
   `cat_ID` int(11) NOT NULL,
   `member_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -71,9 +87,13 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`item_iD`, `name`, `Description`, `price`, `Add_Data`, `country_made`, `image`, `status`, `Rating`, `cat_ID`, `member_ID`) VALUES
-(1, 'adssad', 'sadsadsa', '541', '2021-02-09', 'egypt', '', '2', 0, 0, 0),
-(2, 'jous', 'jouss', '12', '2021-02-09', 'chaine', '', '2', 0, 0, 0);
+INSERT INTO `items` (`item_iD`, `name`, `Description`, `price`, `Add_Data`, `country_made`, `image`, `status`, `Rating`, `approve_items`, `cat_ID`, `member_ID`) VALUES
+(7, 'ahay', 'ahay book', '20$', '2021-02-17', 'egypt', '', '', 0, 0, 7, 12),
+(8, 'magic pc', 'pcs \r\n2 ram dd3', '500$', '2021-02-09', 'chine', '', '1', 0, 0, 10, 12),
+(9, 'q computer', 'this is QCoumpter', '22$', '2021-02-12', 'egypt', '', '1', 0, 0, 7, 12),
+(10, 'chemstery', 'In addition to styling the content within cards, Bootstrap includes a few options for laying out series of cards. For the time being, these layout options are not yet', '20$', '2021-02-12', 'china', '', '1', 0, 0, 7, 19),
+(11, 'layout', 'In addition to styling the content within cards, Bootstrap includes a few options for laying out series of cards. For the time being, these layout options are not yet', '15$', '2021-02-12', 'eg', '', '1', 0, 0, 7, 12),
+(12, 'bootstrap', 'layout bootsrap', '56$', '2021-02-12', 'USA', '', '1', 0, 0, 7, 12);
 
 -- --------------------------------------------------------
 
@@ -98,10 +118,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserID`, `username`, `password`, `Email`, `FullName`, `GroupID`, `TrustStatus`, `RegStatus`, `Date`) VALUES
-(7, 'ahmed', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ahme5d@ahm.com', 'احمد تواب عبد الوهاب', 1, 0, 0, NULL),
+(12, 'ahmed', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ahme5d@ahm.com', 'احمد تواب عبد الوهاب', 1, 0, 0, NULL),
 (17, 'asdasd', '163cc62e57efd43c052b48bf154e5d2f5d2ccfc2', 'ahmedrayes112277@gmail.com', 'احمد تواب عبد الوهاب', 0, 0, 0, NULL),
 (19, 'sada', 'f24e84445c27fdd906c828ce26a69222329235c4', 'sadad@sdad', 'احمد تواب عبد الوهاب', 0, 0, 0, '2021-02-08'),
-(20, 'sadsafdsaf', 'd5706908cbd9e5c9cf8b7268aafb7f6d73222062', 'sdfsdaf2@aa', 'asda', 0, 0, 1, '2021-02-01'),
 (22, 'aaaasa', '853c43ee11ad2df47d8e2bb96f86aeecc23b60df', 'ahme5d@ahm.coma', 'asdsadsad', 0, 0, 0, '2021-02-07'),
 (23, 'adasdsad', '29254084529b387bca53fa41726e7198c88c1424', 'ahmedrayes112277@gmail.com', 'fsadfsa', 0, 0, 1, NULL),
 (24, 'asdad', '3ac5e8f184e060793048507eb50c84bcc0ba1825', 'asdad@ffssd', 'asad', 0, 0, 0, NULL),
@@ -121,10 +140,20 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`C_ID`),
+  ADD KEY `user_ID` (`user_ID`),
+  ADD KEY `item_ID` (`item_ID`);
+
+--
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
-  ADD PRIMARY KEY (`item_iD`);
+  ADD PRIMARY KEY (`item_iD`),
+  ADD KEY `cat_ID` (`cat_ID`),
+  ADD KEY `member_ID` (`member_ID`);
 
 --
 -- Indexes for table `users`
@@ -140,19 +169,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `ID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `C_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_iD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `item_iD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `users`
+-- Constraints for dumped tables
 --
-ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`item_ID`) REFERENCES `categories` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `items`
+--
+ALTER TABLE `items`
+  ADD CONSTRAINT `items_ibfk_2` FOREIGN KEY (`cat_ID`) REFERENCES `categories` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `items_ibfk_3` FOREIGN KEY (`member_ID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

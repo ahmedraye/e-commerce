@@ -5,6 +5,8 @@
         include 'init.php';
         $NLU = 5;
         $latsetUser = GetLatest('*','users','Username',$NLU);
+        $ILU = 5;
+        $latsetItems = GetLatest('*','items','name',$NLU);
         
         ?>
             <div class="status text-center">
@@ -19,24 +21,28 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="stat">
+                                <i class='fa fa-users'></i>
                                 total members
                                 <span><a href='members.php'><?php echo countItem('UserID','users');?></a></span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="stat">
+                            <i class='fa fa-user-plus'></i>
                                 pending users
                                 <span><a href="members.php?do='mange'&page='pending'"><?php echo checkItem('RegStatus','users',0);?></a></span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="stat">
+                            <i class='fa fa-tag'></i>
                                 total tag
                                 <span>1564</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="stat">
+                            <i class='fa fa-comment'></i>
                                 command
                                 <span>14000</span>
                             </div>
@@ -50,7 +56,10 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title"><i class='fa fa-user'></i> Letest <?php echo $NLU;?> user registed</h5>
+                                    <div class="card-title">
+                                        <i class='fa fa-user'></i> Letest <?php echo $NLU;?> user registed
+                                        <span class="toggle-inf"><i class="fa fa-plus fa-lg float-right "></i></span>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <?php
@@ -68,10 +77,23 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title"><i class='fa fa-tag'></i> Panel heading without title</h5>
+                                    <div class="card-title">
+                                        <i class='fa fa-tag'></i> Letest <?php echo $ILU;?> items registed
+                                        <span class="toggle-inf"><i class="fa fa-plus fa-lg float-right "></i></span>
+                                    </div>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text">card body</p>
+                                <?php
+                                        foreach($latsetItems as $item){
+                                            echo '<p class="card-text ">'.$item['name'].'<a class="float-right" href="items.php?do=Edit&item_id='
+                                            .$item['item_iD'].'" >'.'<i class="fa fa-edit"></i>'.'</a>';
+                                            if($item['approve_items'] == 0){
+                                                echo '<a class="float-right activation" href="items.php?do=approve&item_id='
+                                                .$item['item_iD'].'" >'.'<i class="fa fa-user-lock"></i>'.'</a>';
+                                            }
+                                            echo '</p>';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

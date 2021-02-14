@@ -31,7 +31,11 @@ $dash-color:#343a40;
         color:white;
         box-shadow: -10px 11px 11px 1px #000;
         .card-header{
-
+            .card-title{
+                .toggle-inf:hover{
+                    cursor: pointer;
+                }
+            }
         }
         .card-body{
             .card-text:nth-child(odd){//you can use even

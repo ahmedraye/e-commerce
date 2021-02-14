@@ -1,0 +1,56 @@
+/**all app style**/
+body {
+  background-color: #f4f4f4;
+  font-size: 16px; }
+
+.header_add {
+  margin: 40px 0 40px; }
+
+/**
+*Start edit bootstrap
+*/
+.navbar-brand {
+  font-size: 1em; }
+
+.dropdown-menu.show {
+  background-color: #2980b9; }
+
+.dropdown-item {
+  color: white; }
+
+.dropdown-item:hover {
+  color: #2980b9; }
+
+.dropdown-menu {
+  left: none; }
+
+/**
+*End edit bootstrap
+*/
+.login {
+  color: #9c27b0 !important;
+  text-transform: capitalize; }
+
+.container .row {
+  justify-content: space-around !important; }
+  .container .row .login-f, .container .row .signup {
+    margin-top: 50px;
+    background-color: #17a2b8;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #17434a; }
+    .container .row .login-f h3, .container .row .signup h3 {
+      margin: 40px 0 40px; }
+
+/**strat form login*/
+.container .row {
+  justify-content: space-between; }
+  .container .row .card {
+    max-width: 17em;
+    margin-bottom: 10px; }
+    .container .row .card .card-body {
+      overflow: hidden;
+      max-height: 150px; }
+
+/**end form login*/
+
+/*# sourceMappingURL=front.css.map */
