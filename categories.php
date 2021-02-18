@@ -1,4 +1,6 @@
-<?php require 'init.php';
+<?php 
+    session_start();
+    require 'init.php';
     $CatID   = (isset($_GET['cat_ID']))?$_GET['cat_ID']:'';
     $CatName = (isset($_GET['cat_name']))?$_GET['cat_name']:'';
 ?>
@@ -11,7 +13,7 @@
                     ?>
                     <img class="card-img-top" src="layout/images/What-are-Action-Items.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $item['name'];?></h5>
+                        <h5 class="card-title"><?php echo '<a href="items.php?item_id='.$item['item_iD'].'">'.$item['name'].'</a>';?></h5>
                         <p class="card-text"><?php echo $item['Description'];?></p>
                     </div>
                     <?php
